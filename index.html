@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cristian Tiut — Full-Stack Developer</title>
+<meta name="description" content="Cristian Tiut, full-stack developer in Bucharest. Java/Spring Boot, React, and financial computing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#121826;
+    --ink-soft:#1b2332;
+    --paper:#f1ede4;
+    --paper-dim:#c9c3b4;
+    --paper-faint:#8b8577;
+    --gold:#c9a24a;
+    --gold-soft:#3a3322;
+    --line: rgba(241,237,228,0.14);
+    --maxw: 760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter', -apple-system, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  ::selection{background:var(--gold);color:var(--ink);}
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* HERO */
+  header.hero{
+    padding:96px 0 72px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:14px;
+    color:var(--gold);
+    margin:0 0 18px;
+    font-weight:500;
+  }
+  h1{
+    font-family:'Fraunces', Georgia, serif;
+    font-size:clamp(40px, 7vw, 60px);
+    line-height:1.08;
+    font-weight:500;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .lede{
+    font-size:19px;
+    color:var(--paper-dim);
+    max-width:56ch;
+    margin:0 0 32px;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    font-size:14px;
+    color:var(--paper-faint);
+  }
+  .hero-meta a{
+    color:var(--paper-dim);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1px;
+    transition:color .15s, border-color .15s;
+  }
+  .hero-meta a:hover, .hero-meta a:focus-visible{
+    color:var(--gold);
+    border-color:var(--gold);
+  }
+
+  nav.jump{
+    display:flex;
+    gap:26px;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+    position:sticky;
+    top:0;
+    background:rgba(18,24,38,0.92);
+    backdrop-filter:blur(6px);
+    z-index:10;
+  }
+  nav.jump a{
+    text-decoration:none;
+    color:var(--paper-faint);
+    transition:color .15s;
+  }
+  nav.jump a:hover, nav.jump a:focus-visible{color:var(--paper);}
+
+  section{
+    padding:64px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  h2{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:28px;
+    margin:0 0 36px;
+    color:var(--paper);
+  }
+
+  /* EXPERIENCE — true timeline, content is sequential */
+  .timeline{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+  }
+  .role{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:24px;
+  }
+  .role time{
+    font-size:13px;
+    color:var(--paper-faint);
+    padding-top:3px;
+  }
+  .role-body h3{
+    margin:0 0 4px;
+    font-size:17px;
+    font-weight:600;
+  }
+  .role-body .org{
+    color:var(--gold);
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  .role-body p{
+    margin:0;
+    color:var(--paper-dim);
+    font-size:15px;
+    max-width:58ch;
+  }
+  @media (max-width:560px){
+    .role{grid-template-columns:1fr;}
+    .role time{padding-top:0;}
+  }
+
+  /* PROJECTS — list, not cards */
+  .projects{
+    display:flex;
+    flex-direction:column;
+  }
+  .project{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:16px;
+    align-items:baseline;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    text-decoration:none;
+    transition:padding-left .18s ease;
+  }
+  .project:first-child{border-top:none;}
+  .project:hover, .project:focus-visible{
+    padding-left:10px;
+  }
+  .project:hover h3, .project:focus-visible h3{color:var(--gold);}
+  .project-main h3{
+    margin:0 0 6px;
+    font-size:17px;
+    font-weight:600;
+    color:var(--paper);
+    transition:color .15s;
+  }
+  .project-main p{
+    margin:0;
+    color:var(--paper-dim);
+    font-size:14.5px;
+    max-width:54ch;
+  }
+  .project-year{
+    font-size:13px;
+    color:var(--paper-faint);
+    white-space:nowrap;
+  }
+
+  /* SKILLS */
+  .skillset{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px 40px;
+  }
+  .skillset h3{
+    font-size:13px;
+    text-transform:none;
+    color:var(--gold);
+    margin:0 0 10px;
+    font-weight:500;
+  }
+  .skillset p{
+    margin:0;
+    color:var(--paper-dim);
+    font-size:14.5px;
+    line-height:1.7;
+  }
+  @media (max-width:560px){
+    .skillset{grid-template-columns:1fr;}
+  }
+
+  /* EDUCATION */
+  .edu{display:flex; flex-direction:column; gap:28px;}
+  .edu-item h3{margin:0 0 3px; font-size:16px; font-weight:600;}
+  .edu-item .org{color:var(--gold); font-size:14px; margin-bottom:6px;}
+  .edu-item p{margin:0; color:var(--paper-dim); font-size:14.5px;}
+
+  /* CONTACT */
+  .contact h2{margin-bottom:16px;}
+  .contact p{
+    color:var(--paper-dim);
+    font-size:17px;
+    max-width:48ch;
+    margin:0 0 28px;
+  }
+  .contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .contact-links a{
+    text-decoration:none;
+    font-size:14.5px;
+    padding:11px 18px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--paper);
+    transition:border-color .15s, background .15s;
+  }
+  .contact-links a.primary{
+    background:var(--gold);
+    color:var(--ink);
+    border-color:var(--gold);
+    font-weight:600;
+  }
+  .contact-links a.primary:hover, .contact-links a.primary:focus-visible{
+    background:#dab766;
+  }
+  .contact-links a:not(.primary):hover, .contact-links a:not(.primary):focus-visible{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+
+  footer{
+    padding:32px 28px 48px;
+    text-align:center;
+    font-size:13px;
+    color:var(--paper-faint);
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="jump wrap">
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap reveal">
+    <p class="eyebrow">Bucharest, Romania</p>
+    <h1>Cristian Tiut builds<br>software that holds up <em>under load</em>.</h1>
+    <p class="lede">Full-stack developer working in Java, Spring Boot, and React — currently shipping features for an enterprise IT asset discovery platform, and about to start a master's in financial computing.</p>
+    <div class="hero-meta">
+      <a href="mailto:tiutcristian@gmail.com">tiutcristian@gmail.com</a>
+      <a href="tel:+40721644423">+40 721 644 423</a>
+      <a href="https://linkedin.com/in/cristian-tiut" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/tiutcristian" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="role">
+        <time>Oct 2025 — Present</time>
+        <div class="role-body">
+          <h3>Full-Stack Developer</h3>
+          <div class="org">OpenText, Bucharest</div>
+          <p>Shipped 60+ product changes to Universal Discovery &amp; CMDB, an enterprise-scale IT asset discovery and configuration management platform, in React and Java. Worked across engineering and UX to refine requirements, cutting emergency changes by 85%, and expanded test coverage with Jest, JUnit, and Mockito.</p>
+        </div>
+      </div>
+      <div class="role">
+        <time>Jul 2025 — Sep 2025</time>
+        <div class="role-body">
+          <h3>Software Developer Intern</h3>
+          <div class="org">Bosch Romania, Cluj-Napoca</div>
+          <p>Cut prototyping cost on ultrasonic parking systems by replacing dedicated hardware with Raspberry Pi Picos. Built a Jenkins-based remote dev bench that flashes 8 boards in parallel with no manual intervention, and introduced a docs-as-code, submodule-based Git workflow.</p>
+        </div>
+      </div>
+      <div class="role">
+        <time>Jul 2024 — Sep 2024</time>
+        <div class="role-body">
+          <h3>Java &amp; Spring Boot Trainee</h3>
+          <div class="org">msg Systems, Cluj-Napoca</div>
+          <p>Built a RESTful API for a car marketplace on PostgreSQL — 18 endpoints across 4 core entities, covering CRUD, auction creation, real-time bidding, and automated winner determination, secured with Spring Security API-key auth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Selected projects</h2>
+    <div class="projects">
+      <a class="project" href="https://github.com/tiutcristian/nsd-fmri-reconstruction" target="_blank" rel="noopener">
+        <div class="project-main">
+          <h3>Visual stimulus reconstruction from fMRI data</h3>
+          <p>Bachelor's thesis. Maps fMRI BOLD signals to CLIP embeddings via Ridge regression, with retrieval-based and generative reconstruction paths and a Gradio UI comparing ground truth to output across brain regions.</p>
+        </div>
+        <span class="project-year">2026</span>
+      </a>
+      <a class="project" href="https://github.com/tiutcristian/Duo" target="_blank" rel="noopener">
+        <div class="project-main">
+          <h3>Duo</h3>
+          <p>A Duolingo-style learning platform built across a web app (ASP.NET Core MVC) and desktop client (WinUI 3). Led the course team as it grew from 7 to 28 members.</p>
+        </div>
+        <span class="project-year">2025</span>
+      </a>
+      <a class="project" href="https://github.com/tiutcristian/MobileClone" target="_blank" rel="noopener">
+        <div class="project-main">
+          <h3>mobile.de clone</h3>
+          <p>Extension of the msg trainee project with a Next.js frontend, API-key auth upgraded to MFA, and the full stack deployed on Railway.</p>
+        </div>
+        <span class="project-year">2024</span>
+      </a>
+      <a class="project" href="https://github.com/tiutcristian/fleet" target="_blank" rel="noopener">
+        <div class="project-main">
+          <h3>Fleet</h3>
+          <p>Car fleet management site tracking document expiration dates and notifying managers, built with PHP and MySQL.</p>
+        </div>
+        <span class="project-year">2023</span>
+      </a>
+      <a class="project" href="https://github.com/tiutcristian/Passcrypt" target="_blank" rel="noopener">
+        <div class="project-main">
+          <h3>Passcrypt</h3>
+          <p>A C++/Qt password manager with Libsodium-encrypted file storage and a strong password generator.</p>
+        </div>
+        <span class="project-year">2023</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skillset">
+      <div>
+        <h3>Languages</h3>
+        <p>Java, JavaScript, Python, C/C++</p>
+      </div>
+      <div>
+        <h3>Frameworks</h3>
+        <p>Spring Boot, React, Next.js, Node.js</p>
+      </div>
+      <div>
+        <h3>Data</h3>
+        <p>PostgreSQL, MySQL, SQL, JPA/Hibernate</p>
+      </div>
+      <div>
+        <h3>Testing</h3>
+        <p>Jest, JUnit, Mockito</p>
+      </div>
+      <div>
+        <h3>Tools &amp; infra</h3>
+        <p>Git, Docker, Jenkins, Linux, Firebase</p>
+      </div>
+      <div>
+        <h3>Languages spoken</h3>
+        <p>English (C2, Cambridge CAE), German (B1, DSD I), Romanian (native)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="edu-item">
+        <h3>M.Sc. Financial Computing</h3>
+        <div class="org">University Politehnica of Bucharest · Oct 2026 — Jul 2028</div>
+      </div>
+      <div class="edu-item">
+        <h3>B.Sc. Computer Science</h3>
+        <div class="org">Babeș-Bolyai University, Cluj-Napoca · Oct 2023 — Jul 2026</div>
+        <p>1st place, UBB Math and Computer Science Contest 2023 (grade 10) — granted automatic admission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>Open to conversations about software, finance, or anything in between. The fastest way to reach me is email.</p>
+    <div class="contact-links">
+      <a class="primary" href="mailto:tiutcristian@gmail.com">Email me</a>
+      <a href="https://linkedin.com/in/cristian-tiut" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/tiutcristian" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>Cristian Tiut · Bucharest, Romania</footer>
+
+</body>
+</html>
