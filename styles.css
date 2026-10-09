@@ -117,7 +117,12 @@ nav.jump .wrap{
   padding-bottom:18px;
 }
 @media (max-width:480px){
-  nav.jump .wrap{gap:8px 18px; padding-top:14px; padding-bottom:14px;}
+  nav.jump{font-size:13px;}
+  nav.jump .wrap{flex-wrap:nowrap; justify-content:space-between; gap:0 10px; padding-top:14px; padding-bottom:14px;}
+}
+@media (max-width:360px){
+  nav.jump{font-size:12px;}
+  nav.jump .wrap{gap:0 6px;}
 }
 nav.jump a{
   text-decoration:none;
