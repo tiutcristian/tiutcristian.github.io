@@ -35,6 +35,26 @@ header.hero{
   padding:96px 0 72px;
   border-bottom:1px solid var(--line);
 }
+.hero-inner{
+  max-width:980px;
+  display:flex;
+  align-items:center;
+  gap:48px;
+}
+.hero-text{flex:1; min-width:0;}
+.portrait{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--gold);
+  flex-shrink:0;
+  order:2;
+}
+@media (max-width:640px){
+  .hero-inner{flex-direction:column; align-items:flex-start; gap:28px;}
+  .portrait{order:0; width:140px; height:140px;}
+}
 .eyebrow{
   font-size:14px;
   color:var(--gold);
@@ -79,6 +99,7 @@ h1 em{
 }
 
 nav.jump{
+  max-width:980px;
   display:flex;
   gap:26px;
   padding:18px 0;
