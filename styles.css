@@ -117,12 +117,9 @@ nav.jump .wrap{
   padding-bottom:18px;
 }
 @media (max-width:480px){
-  nav.jump{font-size:13px;}
-  nav.jump .wrap{flex-wrap:nowrap; justify-content:space-between; gap:0 10px; padding-top:14px; padding-bottom:14px;}
-}
-@media (max-width:360px){
-  nav.jump{font-size:12px;}
-  nav.jump .wrap{gap:0 6px;}
+  nav.jump{font-size:clamp(10px,3.2vw,14px);}
+  nav.jump .wrap{flex-wrap:nowrap; justify-content:space-between; gap:0 6px; padding-left:16px; padding-right:16px; padding-top:14px; padding-bottom:14px;}
+  nav.jump a{white-space:nowrap;}
 }
 nav.jump a{
   text-decoration:none;
